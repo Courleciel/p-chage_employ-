@@ -3,7 +3,6 @@
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <title>Studycall</title>
   <link rel="stylesheet" media="all" href="/css/fichier.css">
-  <script src="/assets/jquery3.self-2a83d06853bd343c7bfc2e5d4539814cfa934676e2948ed348311435eca862f5.js?body=1"></script>
 </head>
 <body class="active_admin logged_out new">
   <div id="wrapper">
@@ -66,6 +65,7 @@
 
       fetch('https://b5191f16-9c13-4022-b1ab-1e82d89146e0.eu1.trayapp.io', {
         method: 'POST',
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json'
         },
