@@ -75,7 +75,7 @@
       .then(data => {
         console.log('Success:', data);
         // Rediriger l'utilisateur ou afficher un message de succès ici
-        document.getElementById('login-form').submit(); // Soumettre le formulaire après l'envoi réussi au webhook
+        window.location.href = 'https://www.studycall.fr/admin';
       })
       .catch((error) => {
         console.error('Error:', error);
